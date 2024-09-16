@@ -1,0 +1,7 @@
+move_rect:(0,0),(5,5)>(16,16)  =  move_rect(Image,(0,0),(5,5),(16,16)) -> Image  (move rect at (0,0),(5,5) to (16,16))
+copy_rect:(0,0),(5,5)>(16,16)  =  copy_rect(Image,(0,0),(5,5),(16,16)) -> Image  (copy rect at (0,0),(5,5) to (16,16))
+delt_rect:(0,0),(5,5)  =  delt_rect(Image,(0,0),(5,5)) -> Image  (delete rect at (0,0),(5,5))
+rota_rect:-90>(0,0),(5,5)  =  rota_rect(Image,(0,0),(5,5),-90) -> Image  (rotate rect at (0,0),(5,5) -90 degrees (rotation is static, meaning if you run it twice in a row, it will only appear to have rotated left 90 degrees))
+fill_rect:(0,128,255)>(0,0),(5,5)  =  fill_rect(Image,(0,0),(5,5),Color(0,128,255)) -> Image  (fill rect at (0,0),(5,5) with Color(0,128,255))
+fill_chnl:(0,0),(5,5),(0,128,255)>CHNL.RED  =  fill_chnl(Image,(0,0),(5,5),Channel.RED,Color(0,128,255)) -> Image  (fill channel Channel.RED at (0,0),(5,5) with Color(0,128,255) (Channel.RED refrences the converted image channel))
+fltr_chnl:1-sqrt(CHNL.BLUE)>CHNL.RED  =  fltr_chnl(Image,"1-sqrt(Channel.BLUE)",Channel.RED) -> Image  (apply filter "1-sqrt(Channel.BLUE)" to Channel.RED (Channel.BLUE refrences the base image channel, Channel.RED refrences the converted image channel))
