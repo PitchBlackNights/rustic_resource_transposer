@@ -1,12 +1,13 @@
 [package]
-name = "rustic_texture_transposer"
-version = "0.1.0-alpha.1"
+name = "rustic_resource_transposer"
+version = "0.1.0-alpha.2"
 authors = ["PitchBlackNights"]
 edition = "2021"
-rust-version = "1.56"
-description = "A program the converts textures between Minecraft editions"
+rust-version = "1.77"
+description = "A program the converts resources between Minecraft editions.\\I AM LONG!"
 readme = "./README.md"
-repository = "https://github.com/PitchBlackNights/rustic-texture-transposer"
+repository = "https://github.com/PitchBlackNights/rustic-resource-transposer"
+# build = "build.rs"
 publish = false
 
 [dependencies]
@@ -14,7 +15,8 @@ log = "0.4"
 env_logger = "0.11"
 colored = "2.1"
 chrono = "0.4"
-clap = { version = "4.5.17", features = ["derive"] }
+clap = { version = "4.5.17", features = ["cargo"] }
+once_cell = "1.19"
 
 # Not implemented yet
 image = "0.25"
@@ -23,3 +25,7 @@ criterion = "0.5"
 rayon = "1.10"
 crossbeam = "0.8"
 serde_json = "1.0"
+
+[build-dependencies]
+# vergen = { version = "9.0", features = ["build", "cargo", "rustc", "si"]}
+vergen-git2 = { version = "1.0", features = ["build", "cargo", "rustc", "si"]}

@@ -34,7 +34,13 @@ pub struct Resource {
 
 impl Pack {
     /// Constructor to create a new Pack instance
-    fn new(name: String, location: &Path, version: String, mc_edition: MCEdition, mc_version: String) -> Pack {
+    fn new(
+        name: String,
+        location: &Path,
+        version: String,
+        mc_edition: MCEdition,
+        mc_version: String,
+    ) -> Pack {
         Pack {
             name,
             location: location.to_path_buf(),
@@ -52,7 +58,13 @@ impl Pack {
 
 impl Resource {
     /// Constructor to create a new Resource instance
-    fn new(name: String, location: &Path, mc_edition: MCEdition, mc_version: String, resource_type: ResourceType) -> Resource {
+    fn new(
+        name: String,
+        location: &Path,
+        mc_edition: MCEdition,
+        mc_version: String,
+        resource_type: ResourceType,
+    ) -> Resource {
         Resource {
             name,
             location: location.to_path_buf(),
@@ -63,12 +75,12 @@ impl Resource {
     }
 }
 
-
 /// Enum to describe a MC Edition
 #[derive(Debug, PartialEq, Eq)]
 pub enum MCEdition {
     Java,
     Bedrock,
+    None,
 }
 
 /// Enum to describe a Resource Type

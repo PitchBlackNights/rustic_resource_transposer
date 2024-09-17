@@ -29,7 +29,7 @@ pub fn setup_program() -> Args {
 }
 
 /// Initializes the logger (env_logger)
-fn _init_logger(verbose_level: i32) {
+fn _init_logger(verbose_level: u8) {
     let mut builder: Builder = Builder::new();
 
     // Determine log level based on build mode and verbosity flag
@@ -56,10 +56,10 @@ fn _init_logger(verbose_level: i32) {
             let module_path: String = record
                 .module_path()
                 .unwrap_or("UNKNOWN")
-                .replace(env!("CARGO_PKG_NAME"), "rtt");
+                .replace(env!("CARGO_PKG_NAME"), "rrt");
 
             let level: String = if record.level().to_string().len() == 4 {
-                format!(" {}", record.level().to_string())
+                format!(" {}", record.level())
             } else {
                 record.level().to_string()
             };
@@ -80,11 +80,11 @@ fn _init_logger(verbose_level: i32) {
 
             // Apply severity color to the whole log line
             let colored_log: ColoredString = match record.level() {
-                log::Level::Error => log_output.red().bold(),
+                log::Level::Error => log_output.bright_red().bold(),
                 log::Level::Warn => log_output.bright_yellow(),
                 log::Level::Info => log_output.normal(),
-                log::Level::Debug => log_output.blue(),
-                log::Level::Trace => log_output.black(),
+                log::Level::Debug => log_output.bright_blue(),
+                log::Level::Trace => log_output.bright_black(),
             };
 
             writeln!(buf, "{}", colored_log)

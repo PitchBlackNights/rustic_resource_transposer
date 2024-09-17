@@ -9,5 +9,4 @@
         "**/target": true
     },
     "explorerExclude.backup": {},
-    "editor.rename.enablePreview": false
 }
